@@ -3,7 +3,7 @@
   max-width: 396px;
   width: 100%;
   text-align: left;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .user-entry__title {

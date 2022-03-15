@@ -13,7 +13,7 @@ const Navigation = ({loggedIn, onLogout}) => {
             <div className="item-wrapper">
               <IoSchoolOutline/>
               <li className="nav-item">
-                <NavLink className="link"to="/all-schools">All Schools</NavLink>
+                <NavLink className="link"to="/schools">All Schools</NavLink>
               </li>
             </div>
             <div className="item-wrapper">
