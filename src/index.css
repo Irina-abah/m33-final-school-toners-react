@@ -15,11 +15,12 @@
   position: relative;
   width: 100%;
   margin: 0 auto;
+  border: 1px solid red;
 }
 
 body {
   background-color: #FAFAFA;
-  color: #000;
+  color: #666666;
 }
 
 html {

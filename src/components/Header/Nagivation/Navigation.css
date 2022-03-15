@@ -1,0 +1,32 @@
+.nav-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
+  align-items: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav-item {
+  margin-right: 15px;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-right: 15px;
+  align-items: center;
+}
+
+.link {
+  text-decoration: none;
+  color: #666666;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+}

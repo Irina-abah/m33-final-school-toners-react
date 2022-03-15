@@ -1,25 +1,41 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Account from '../../Account/Account';
+import { IoSchoolOutline } from "react-icons/io5";
+import { MdOutlineInventory2 } from "react-icons/md";
+import "./Navigation.css";
 
-const Navigation = ({loggedIn}) => {
+const Navigation = ({loggedIn, onLogout}) => {
   return (
-    <nav>
+    <div className="nav-items">
       {loggedIn ? (
         <>
-        <div>
-          <ul>
-            <li><NavLink to="/all-schools">All Schools</NavLink></li>
-            <li><NavLink to="/toners">Toners</NavLink></li>
+          <ul className="nav-list">
+            <div className="item-wrapper">
+              <IoSchoolOutline/>
+              <li className="nav-item">
+                <NavLink className="link"to="/all-schools">All Schools</NavLink>
+              </li>
+            </div>
+            <div className="item-wrapper">
+              <MdOutlineInventory2/>
+              <li className="nav-item">
+                <NavLink className="link" to="/toners">Toners</NavLink>
+              </li>
+            </div>
           </ul>
-        </div>
-        <button type="button">Log out</button>
+          <Account onLogout={onLogout}/>
         </>
       ) : (
-        <ul>
-          <li><NavLink to="/signup">Register</NavLink></li>
-          <li><NavLink to="/signin">Log in</NavLink></li>
+        <ul className="nav-list">
+          <li className="nav-item">
+            <NavLink className="link" to="/signup">Register</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="link" to="/signin">Log in</NavLink>
+          </li>
         </ul>
       )}
-    </nav>
+    </div>
   )
 };
 

@@ -1,0 +1,19 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border-bottom: 1px solid #666666;
+}
+
+.header-logo {
+  max-width: 100px;
+  height: 65%;
+}
+
+.header-link {
+  max-width: 100px; 
+  height: 65%;
+}
