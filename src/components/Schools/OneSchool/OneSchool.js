@@ -1,8 +1,8 @@
-import Location from "./Location";
+import Location from "./Location/Location";
 
 const OneSchool = ({school}) => {
   return (
-    <li>
+    <li className="school">
       <h3>Name: {school.school_name}</h3>
       <div>
         <h4 className="locations">Locations:</h4>

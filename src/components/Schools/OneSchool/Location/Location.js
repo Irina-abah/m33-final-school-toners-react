@@ -1,8 +1,8 @@
-import Toner from "./Toner";
+import Toner from "./Toner/Toner"
 
 const Location = ({location}) => {
   return (
-    <li>
+    <li className="location">
       <div>
         <p>Location name: {location.location_name}</p>
         <p>Printer model: {location.printer_model}</p>

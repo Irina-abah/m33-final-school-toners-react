@@ -1,6 +1,6 @@
 import OneSchool from "./OneSchool/OneSchool";
 
-const Schools = ({schools, location}) => {
+const Schools = ({schools}) => {
   return (
     <section>
       <h2>List of all schools of Laurus Trust</h2>
@@ -10,7 +10,6 @@ const Schools = ({schools, location}) => {
             <OneSchool
               key={i}
               school={item}
-              // location={item.locations}
             />
           ))
         }

@@ -1,0 +1,4 @@
+.school {
+  display: flex;
+  flex-direction: row;
+}
