@@ -14,17 +14,17 @@ export class MainApi {
     return Promise.reject(`Error ${res.status}`)
   }
 
-  // getSavedMovies() {
-  //   return fetch(`${this._address}/movies`, {
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-  //     }
-  //   })
-  //   .then((res) => {
-  //     return this._checkResponse(res)
-  //   })
-  // }
+  getSchools() {
+    return fetch(`${this._address}/schools/all`, {
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+    .then((res) => {
+      return this._checkResponse(res)
+    })
+  }
 
   getUserData() {
     return fetch(`${this._address}/users/profile`, {
@@ -39,7 +39,7 @@ export class MainApi {
   }
 
   changeUserData(data) {
-    return fetch(`${this._address}/users/profile`, {
+    return fetch(`${this._address}/users/profile/${data}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json',

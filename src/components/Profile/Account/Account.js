@@ -8,7 +8,7 @@ const Account = ({onLogout}) => {
   const navigate = useNavigate();
 
   function handleProfile() {
-    navigate('/users/profile');
+    navigate('/profile');
   }
 
   return (

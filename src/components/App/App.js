@@ -19,6 +19,7 @@ const App = () => {
     name: '',
     email: '',
   });
+  const [schools, setSchools] = React.useState([]);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -59,10 +60,8 @@ const App = () => {
         }
         mainApi.getUserData()
         .then((myData) => {
-          console.log(myData)
           const userData = JSON.parse(localStorage.getItem('user'));
-          setCurrentUser(userData.user)
-          console.log(currentUser) 
+          setCurrentUser(userData)
         })
         .catch((err) => {
           setIsLoading(false)
@@ -83,10 +82,9 @@ const App = () => {
       .then((res) => {
           if (res) {
             setLoggedIn(true)
-            console.log(res)
             const userData = JSON.parse(localStorage.getItem('user'));
-            console.log(userData.user)
-            setCurrentUser(userData.user)
+            setCurrentUser(userData)
+            console.log(currentUser)
             if (location.pathname === '/schools') {
               navigate('/schools')
             } else if (location.pathname === '/profile') {
@@ -117,9 +115,32 @@ const App = () => {
 
   // update user info
 
-  const handleUpdate = () => {
-
+  function handleUpdateUser(user) {
+    const userData = JSON.parse(localStorage.getItem('user'));
+    mainApi.changeUserData(userData.id)
+    .then((data) => {
+      setCurrentUser(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
   }
+
+  // fetch schools, locations and toners info
+  React.useEffect(() => {
+    let jwt = localStorage.getItem('jwt');
+    if (jwt) {
+      mainApi.getSchools()
+      .then((data) => {
+        localStorage.setItem('schools',  JSON.stringify(data));
+        setSchools(data)
+        console.log(data)
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
+  }, [loggedIn])
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -131,7 +152,7 @@ const App = () => {
         <Routes>
           <Route path="/" index element={<Main />}>
           </Route>
-          <Route path="/schools" element={<Schools />}>
+          <Route path="/schools" element={<Schools schools={schools}/>}>
           </Route>
           <Route path="/signup" element={<Register 
             onRegister={handleRegister}
@@ -141,7 +162,7 @@ const App = () => {
             onLogin={handleLogin}
             isLoading={isLoading} />}>
           </Route>
-          <Route path="/profile" element={<Profile onUpdateUser={handleUpdate} onSignOut={handleLogout}/>}>
+          <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
           </Route>
         </Routes>
       </div>
