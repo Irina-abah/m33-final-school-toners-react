@@ -29,3 +29,19 @@ box-shadow: none;
   background-color: #EBEBEB;
   pointer-events: none;
 }
+
+.button_type_edit {
+  font-size: 13px;
+  line-height: 1.21;
+  font-weight: 400;
+  background-color: #625368;
+  height: 45px;
+  color: #fff;
+  margin: 29px 0 16px;
+  margin: 69px 0 16px;
+}
+
+.button_type_edit_disabled {
+  color: #EBEBEB;
+  pointer-events: none;
+}

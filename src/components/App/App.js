@@ -4,6 +4,7 @@ import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Main from '../Main/Main';
 import Schools from '../Schools/Schools';
+import Profile from '../Profile/Profile';
 import React, { useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import * as auth from "../../utils/auth";
@@ -59,7 +60,8 @@ const App = () => {
         mainApi.getUserData()
         .then((myData) => {
           console.log(myData)
-          setCurrentUser(myData)
+          const userData = JSON.parse(localStorage.getItem('user'));
+          setCurrentUser(userData.user)
           console.log(currentUser) 
         })
         .catch((err) => {
@@ -81,8 +83,10 @@ const App = () => {
       .then((res) => {
           if (res) {
             setLoggedIn(true)
-            console.log(loggedIn)
-            setCurrentUser(res)
+            console.log(res)
+            const userData = JSON.parse(localStorage.getItem('user'));
+            console.log(userData.user)
+            setCurrentUser(userData.user)
             if (location.pathname === '/schools') {
               navigate('/schools')
             } else if (location.pathname === '/profile') {
@@ -101,12 +105,20 @@ const App = () => {
     }
   }, [navigate, loggedIn, location.pathname]);
 
+  // log out from account
+  
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
     setLoggedIn(false);
     console.log(loggedIn)
     setCurrentUser({});
+  }
+
+  // update user info
+
+  const handleUpdate = () => {
+
   }
 
   return (
@@ -128,6 +140,8 @@ const App = () => {
           <Route path="/signin" element={<Login 
             onLogin={handleLogin}
             isLoading={isLoading} />}>
+          </Route>
+          <Route path="/profile" element={<Profile onUpdateUser={handleUpdate} onSignOut={handleLogout}/>}>
           </Route>
         </Routes>
       </div>

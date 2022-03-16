@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-import Account from '../../Account/Account';
+import Account from '../../Profile/Account/Account';
 import { IoSchoolOutline } from "react-icons/io5";
 import { MdOutlineInventory2 } from "react-icons/md";
 import "./Navigation.css";
@@ -7,7 +7,7 @@ import "./Navigation.css";
 const Navigation = ({loggedIn, onLogout}) => {
   return (
     <div className="nav-items">
-      {loggedIn ? (
+      {!loggedIn ? (
         <>
           <ul className="nav-list">
             <div className="item-wrapper">
