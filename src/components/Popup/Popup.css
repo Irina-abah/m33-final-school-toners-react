@@ -38,14 +38,6 @@
   margin-bottom: 32px;
 }
 
-.popup__title {
-  font-size: 24px;
-  line-height: 1.196;
-  font-weight: 900;
-  color: #000;
-  margin: 0 0 54px;
-}
-
 .popup__input-container {
   display: flex;
   flex-direction: column;
@@ -87,6 +79,15 @@
   padding: 0;
   display: flex;
   flex-direction: column;
+}
+
+.success__title {
+  color: #abb696;
+  font-size: 20px;
+  line-height: 1.21;
+  font-weight: 600;
+  margin: 10px 0 0 0;
+  text-align: center;
 }
 
 @media screen and (max-width: 1023px) {

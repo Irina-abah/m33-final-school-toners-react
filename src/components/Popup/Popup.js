@@ -3,7 +3,7 @@ import "./Popup.css";
 
 const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
 
-  const SUCCESS_MESSAGE = "Quantity of toners has been updated";
+  const SUCCESS_MESSAGE = "Quantity of toners has been updated!";
   const FAILED_MESSAGE = "Something went wrong, try again";
   
   const [quantity, setQuantity] = React.useState('');
@@ -17,6 +17,7 @@ const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
     onUpdateQuantity(item.id, {
         quantity: quantity,
       });
+      setQuantity("")
       console.log(item.id)
   }
 
@@ -67,7 +68,7 @@ const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
               Confirm
             </button>
           </form>
-          {isSuccess && <h2 className="popup__title">{isSuccess ? SUCCESS_MESSAGE : FAILED_MESSAGE}</h2>}
+          {isSuccess && <h2 className="success__title">{isSuccess ? SUCCESS_MESSAGE : FAILED_MESSAGE}</h2>}
         </div>
       </>
     )
