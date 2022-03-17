@@ -5,7 +5,6 @@ import Login from '../Login/Login';
 import Main from '../Main/Main';
 import Schools from '../Schools/Schools';
 import Profile from '../Profile/Profile';
-import Popup from '../Popup/Popup';
 import React, { useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import * as auth from "../../utils/auth";
@@ -152,7 +151,7 @@ const App = () => {
   }
 
   const closePopup = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(false)
   }
 
   return (
@@ -165,7 +164,13 @@ const App = () => {
         <Routes>
           <Route path="/" index element={<Main />}>
           </Route>
-          <Route path="/schools" element={<Schools schools={schools} onChangeQuantity={changeQuantity}/>}>
+          <Route path="/schools" element={<Schools 
+            schools={schools} 
+            onChangeQuantity={changeQuantity}
+            isOpen={isOpen}
+            isSuccess={isSuccess}
+            onClose={closePopup}
+            />}>
           </Route>
           <Route path="/signup" element={<Register 
             onRegister={handleRegister}
@@ -178,14 +183,11 @@ const App = () => {
           <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
           </Route>
         </Routes>
-        <Popup
+         {/* {isOpen && <Popup
           isOpen={isOpen}
           isSuccess={isSuccess}
           onClose={closePopup}
-        >
-
-        </Popup>
-
+        />} */}
       </div>
     </CurrentUserContext.Provider>
   );

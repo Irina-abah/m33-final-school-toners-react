@@ -1,7 +1,7 @@
 import OneSchool from "./OneSchool/OneSchool";
 import "./Schools.css";
 
-const Schools = ({schools, onChangeQuantity}) => {
+const Schools = ({schools, onChangeQuantity, isOpen, isSuccess, onClose}) => {
   return (
     <section className="schools">
       <h2 className="section-title">List of all schools of Laurus Trust</h2>
@@ -12,6 +12,9 @@ const Schools = ({schools, onChangeQuantity}) => {
               key={i}
               school={item}
               onChangeQuantity={onChangeQuantity}
+              isOpen={isOpen}
+              isSuccess={isSuccess}
+              onClose={onClose}
             />
           ))
         }

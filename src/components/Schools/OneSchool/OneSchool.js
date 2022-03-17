@@ -1,7 +1,7 @@
 import Location from "./Location/Location";
 import "./OneSchool.css";
 
-const OneSchool = ({school, onChangeQuantity}) => {
+const OneSchool = ({school, onChangeQuantity, isOpen, isSuccess, onClose}) => {
   return (
     <>
     <li className="school">
@@ -10,7 +10,14 @@ const OneSchool = ({school, onChangeQuantity}) => {
         <h4 className="locations-title">Locations:</h4>
         <ul className="locations-list">
           { school.locations.map((location, i) => (
-            <Location key={i} location={location} onChangeQuantity={onChangeQuantity} />
+            <Location 
+              key={i} 
+              location={location} 
+              onChangeQuantity={onChangeQuantity} 
+              isOpen={isOpen}
+              isSuccess={isSuccess}
+              onClose={onClose}
+              />
           ))
           }
         </ul>

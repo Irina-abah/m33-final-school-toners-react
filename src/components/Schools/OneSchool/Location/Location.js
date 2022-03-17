@@ -1,7 +1,7 @@
 import Toner from "../Toner/Toner";
 import "./Location.css";
 
-const Location = ({location, onChangeQuantity}) => {
+const Location = ({location, onChangeQuantity, isOpen, isSuccess, onClose}) => {
   return (
     <li className="location">
       <div className="location-info">
@@ -13,7 +13,14 @@ const Location = ({location, onChangeQuantity}) => {
         <h4 className="toners-title">Toners:</h4>
         <ul className="toners-list">
           { location.toners.map((toner, i) => (
-            <Toner key={i} toner={toner} onChangeQuantity={onChangeQuantity}/>
+            <Toner 
+              key={i} 
+              toner={toner} 
+              onChangeQuantity={onChangeQuantity}
+              isOpen={isOpen}
+              isSuccess={isSuccess}
+              onClose={onClose}
+              />
           ))}
         </ul>
       </div> 
