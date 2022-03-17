@@ -16,6 +16,7 @@ const Location = ({location, onChangeQuantity, isOpen, isSuccess, onClose}) => {
             <Toner 
               key={i} 
               toner={toner} 
+              id={toner.id}
               onChangeQuantity={onChangeQuantity}
               isOpen={isOpen}
               isSuccess={isSuccess}

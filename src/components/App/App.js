@@ -146,13 +146,22 @@ const App = () => {
 
   // Update toners quantity 
 
-  const changeQuantity = () => {
-      setIsOpen(!isOpen)
+  const changeQuantity = (id, data) => {
+    mainApi.changeToner(id, data)
+    .then((res) => {
+      if (res) {
+        setIsSuccess(true)
+        setSchools(schools)
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
 
-  const closePopup = () => {
-    setIsOpen(false)
-  }
+  // const closePopup = () => {
+  //   setIsOpen(false)
+  // }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -169,7 +178,6 @@ const App = () => {
             onChangeQuantity={changeQuantity}
             isOpen={isOpen}
             isSuccess={isSuccess}
-            onClose={closePopup}
             />}>
           </Route>
           <Route path="/signup" element={<Register 

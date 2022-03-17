@@ -55,45 +55,23 @@ export class MainApi {
     })
   }
 
-  // addMovie(data) {
-  //   return fetch(`${this._address}/movies`, {
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-  //     },
-  //     body: JSON.stringify({
-  //       country: data.country,  
-  //       director: data.director,
-  //       duration: data.duration,
-  //       year: data.year,
-  //       description: data.description,
-  //       image: `${BASE_URL}${data.image.url}`,
-  //       trailer: data.trailerLink,
-  //       thumbnail: `${BASE_URL}${data.image.formats.thumbnail.url}`,
-  //       movieId: data.id.toString(),
-  //       nameRU: data.nameRU,
-  //       nameEN: data.nameEN,
-  //     })
-  //   })
-  //   .then((res) => {
-  //     return this._checkResponse(res)
-  //   })
-  // }
+  changeToner(toner, data) {
+    return fetch(`${this._address}/toners/${toner}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+      },
+      body: JSON.stringify({
+        quantity: data.quantity
+      })
+    })
+    .then((res) => {
+      return this._checkResponse(res)
+    })
+  }
 
-  // deleteMovie(movie) {
-  //   return fetch(`${this._address}/movies/${movie}`, {
-  //     method: 'DELETE',
-  //     headers: {
-  //       'Content-type': 'application/json',
-  //       'Authorization': `Bearer ${localStorage.getItem('jwt')}`
-  //     },
-  //   })
-  //   .then((res) => {
-  //     return this._checkResponse(res)
 
-  //   })
-  // }
 
 }
 

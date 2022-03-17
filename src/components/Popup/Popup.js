@@ -10,14 +10,15 @@ const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
 
   function handleQuantityChange(evt) {
     setQuantity(evt.target.value)
-}
+  }
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onUpdateQuantity({
+    onUpdateQuantity(item.id, {
         quantity: quantity,
       });
-}
+      console.log(item.id)
+  }
 
   function handleClick(evt) {
     onClose();
