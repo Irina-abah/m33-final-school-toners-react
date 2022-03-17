@@ -3,7 +3,7 @@ import { RiLogoutCircleLine } from "react-icons/ri";
 import "./Account.css";
 import { useNavigate } from "react-router-dom";
 
-const Account = ({onLogout}) => {
+const Account = ({onSignOut}) => {
 
   const navigate = useNavigate();
 
@@ -19,7 +19,7 @@ const Account = ({onLogout}) => {
       </div>
       <div className="profile-item">
         <RiLogoutCircleLine/>
-        <button type="button" onClick={onLogout}>Log out</button>
+        <button className="button button_type_exit" type="button" onClick={onSignOut}>Log out</button>
       </div>
     </div>
   )

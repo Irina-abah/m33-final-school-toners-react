@@ -5,6 +5,7 @@ import Login from '../Login/Login';
 import Main from '../Main/Main';
 import Schools from '../Schools/Schools';
 import Profile from '../Profile/Profile';
+import Popup from '../Popup/Popup';
 import React, { useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import * as auth from "../../utils/auth";
@@ -20,6 +21,8 @@ const App = () => {
     email: '',
   });
   const [schools, setSchools] = React.useState([]);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [isSuccess, setIsSuccess] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -142,17 +145,27 @@ const App = () => {
     }
   }, [loggedIn])
 
+  // Update toners quantity 
+
+  const changeQuantity = () => {
+      setIsOpen(!isOpen)
+  }
+
+  const closePopup = () => {
+    setIsOpen(!isOpen)
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
         <Header> 
           loggedIn={loggedIn}
-          onLogout={handleLogout}
+          onSignOut={handleLogout}
         </Header>
         <Routes>
           <Route path="/" index element={<Main />}>
           </Route>
-          <Route path="/schools" element={<Schools schools={schools}/>}>
+          <Route path="/schools" element={<Schools schools={schools} onChangeQuantity={changeQuantity}/>}>
           </Route>
           <Route path="/signup" element={<Register 
             onRegister={handleRegister}
@@ -165,6 +178,14 @@ const App = () => {
           <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
           </Route>
         </Routes>
+        <Popup
+          isOpen={isOpen}
+          isSuccess={isSuccess}
+          onClose={closePopup}
+        >
+
+        </Popup>
+
       </div>
     </CurrentUserContext.Provider>
   );

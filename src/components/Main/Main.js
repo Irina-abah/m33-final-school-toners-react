@@ -1,11 +1,10 @@
-import Header from "../Header/Header";
 
 
-const Main = () => {
+const Main = ({}) => {
   return (
-    <section>
+    <main className="main">
       
-    </section>
+    </main>
   )
 }
 

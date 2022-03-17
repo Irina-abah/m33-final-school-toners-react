@@ -1,19 +1,23 @@
 import Location from "./Location/Location";
+import "./OneSchool.css";
 
-const OneSchool = ({school}) => {
+const OneSchool = ({school, onChangeQuantity}) => {
   return (
+    <>
     <li className="school">
-      <h3>Name: {school.school_name}</h3>
-      <div>
-        <h4 className="locations">Locations:</h4>
-        <ul>
+      <h3 className="school-name">{school.school_name}</h3>
+      <div className="locations">
+        <h4 className="locations-title">Locations:</h4>
+        <ul className="locations-list">
           { school.locations.map((location, i) => (
-            <Location location={location} />
+            <Location key={i} location={location} onChangeQuantity={onChangeQuantity} />
           ))
           }
         </ul>
       </div>
+      <p className="total">Total amount of toners:</p>
     </li>
+    </>
   )
 }
 

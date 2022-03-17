@@ -4,10 +4,10 @@ import { IoSchoolOutline } from "react-icons/io5";
 import { MdOutlineInventory2 } from "react-icons/md";
 import "./Navigation.css";
 
-const Navigation = ({loggedIn, onLogout}) => {
+const Navigation = ({loggedIn, onSignOut}) => {
   return (
     <div className="nav-items">
-      {!loggedIn ? (
+      {loggedIn ? (
         <>
           <ul className="nav-list">
             <div className="item-wrapper">
@@ -23,15 +23,15 @@ const Navigation = ({loggedIn, onLogout}) => {
               </li>
             </div>
           </ul>
-          <Account onLogout={onLogout}/>
+          <Account onSignOut={onSignOut}/>
         </>
       ) : (
         <ul className="nav-list">
           <li className="nav-item">
-            <NavLink className="link" to="/signup">Register</NavLink>
+            <NavLink className="link header__link_type_signup" to="/signup">Register</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="link" to="/signin">Log in</NavLink>
+            <NavLink className="link header__link_type_signin" to="/signin">Log in</NavLink>
           </li>
         </ul>
       )}

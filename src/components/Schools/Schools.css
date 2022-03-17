@@ -1,0 +1,19 @@
+.schools {
+  width: calc(100% - 70px*2);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.schools-container {
+  margin: 0;
+  padding: 0px;
+}
+
+.section-title {
+  margin: 30px 0;
+  font-size: 34px;
+  line-height: 1.21;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  text-align: center;
+}

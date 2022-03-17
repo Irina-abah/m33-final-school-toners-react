@@ -2,13 +2,13 @@
 @import url('./styles/section.css');
 @import url('./styles/link.css');
 @import url('./styles/form-input.css');
+@import url('./fonts/fonts.css');
 
 #root {
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Open Sans", Arial, sans-serif;
   font-style: normal;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
@@ -17,7 +17,7 @@
   max-width: 1280px;
   min-width: 320px;
   min-height: 100vh;
-  position: relative;
+  /* position: relative; */
   width: 100%;
   margin: 0 auto;
   border: 1px solid red;
@@ -25,9 +25,13 @@
 
 body {
   background-color: #FAFAFA;
-  color: #666666;
+  color: #333;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+span {
+  font-weight: 600;
 }

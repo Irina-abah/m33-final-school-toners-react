@@ -1,4 +1,38 @@
 .school {
-  display: flex;
-  flex-direction: row;
+  border: 1px solid #abb696;
+  margin-bottom: 15px;
+  padding: 10px;
+  /* box-sizing: border-box; */
+}
+
+.locations {
+  position: relative;
+  /* border: 1px solid red; */
+}
+
+.locations-title {
+  width: 400px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.locations-list {
+  list-style: none;
+  padding: 0;
+}
+
+.school-name {
+  font-size: 18px;
+  line-height: 1.21;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.total {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 400px;
 }

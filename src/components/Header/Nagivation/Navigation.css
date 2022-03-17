@@ -30,3 +30,21 @@
   font-size: 15px;
   line-height: 1.4;
 }
+
+.link:hover {
+  opacity: 0.6;
+  transition: all 0.7s ease;
+}
+
+.link:focus {
+  outline: 0;
+  box-shadow: none;
+}
+
+.header__link_type_signin {
+  background-color: #625368;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 3px;
+  margin: 0 0 0 20px;
+}

@@ -1,0 +1,34 @@
+.location {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid #abb696;
+  /* border: 1px solid red; */
+}
+
+.toners-list {
+  list-style: none;
+  padding: 0;
+}
+
+.location-info {
+  max-width: 400px;
+  width: 100%;
+}
+
+.toners {
+  min-height: 100px;
+  max-height: 200px;
+  /* height: 100%; */
+  width: 100%;
+  overflow-y: scroll;
+  box-sizing: content-box;
+}
+
+.toners-title {
+  position: absolute;
+  top: -20px;
+  left: 400px;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}

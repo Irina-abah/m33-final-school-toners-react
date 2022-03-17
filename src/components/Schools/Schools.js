@@ -1,19 +1,21 @@
 import OneSchool from "./OneSchool/OneSchool";
+import "./Schools.css";
 
-const Schools = ({schools}) => {
+const Schools = ({schools, onChangeQuantity}) => {
   return (
-    <section>
-      <h2>List of all schools of Laurus Trust</h2>
-      <ul className="schools-container">
+    <section className="schools">
+      <h2 className="section-title">List of all schools of Laurus Trust</h2>
+      <ol className="schools-container">
         {
           schools.map((item, i) => (
             <OneSchool
               key={i}
               school={item}
+              onChangeQuantity={onChangeQuantity}
             />
           ))
         }
-      </ul>
+      </ol>
     </section>
   )
 }
