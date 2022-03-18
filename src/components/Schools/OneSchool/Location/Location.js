@@ -1,7 +1,7 @@
 import Toner from "../Toner/Toner";
 import "./Location.css";
 
-const Location = ({location, onChangeQuantity, isOpen, isSuccess, onClose}) => {
+const Location = ({location, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
   return (
     <li className="location">
       <div className="location-info">
@@ -18,7 +18,7 @@ const Location = ({location, onChangeQuantity, isOpen, isSuccess, onClose}) => {
               toner={toner} 
               id={toner.id}
               onChangeQuantity={onChangeQuantity}
-              isOpen={isOpen}
+              setIsSuccess={setIsSuccess}
               isSuccess={isSuccess}
               onClose={onClose}
               />

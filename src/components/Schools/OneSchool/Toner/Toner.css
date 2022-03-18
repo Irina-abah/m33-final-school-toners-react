@@ -5,10 +5,10 @@
   /* align-items: center; */
 }
 
-.toner-quantity {
-  margin: 0 20px 8px 0;
-}
-
 .infoitem {
   margin: 8px 0;
+}
+
+.toner-low {
+  color: red;
 }

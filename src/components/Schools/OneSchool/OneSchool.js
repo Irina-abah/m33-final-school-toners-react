@@ -1,7 +1,7 @@
 import Location from "./Location/Location";
 import "./OneSchool.css";
 
-const OneSchool = ({school, onChangeQuantity, isOpen, isSuccess, onClose}) => {
+const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
   return (
     <>
     <li className="school">
@@ -14,7 +14,7 @@ const OneSchool = ({school, onChangeQuantity, isOpen, isSuccess, onClose}) => {
               key={i} 
               location={location} 
               onChangeQuantity={onChangeQuantity} 
-              isOpen={isOpen}
+              setIsSuccess={setIsSuccess}
               isSuccess={isSuccess}
               onClose={onClose}
               />

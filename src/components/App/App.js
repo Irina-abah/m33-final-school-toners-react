@@ -20,7 +20,6 @@ const App = () => {
     email: '',
   });
   const [schools, setSchools] = React.useState([]);
-  const [isOpen, setIsOpen] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
@@ -128,11 +127,10 @@ const App = () => {
     });
   }
 
-  // fetch schools, locations and toners info
-  React.useEffect(() => {
-    let jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      mainApi.getSchools()
+  // fetch all schools info
+  
+  const fetchSchools = () => {
+    mainApi.getSchools()
       .then((data) => {
         localStorage.setItem('schools',  JSON.stringify(data));
         setSchools(data)
@@ -142,26 +140,29 @@ const App = () => {
         console.log(err);
       })
     }
-  }, [loggedIn])
 
-  // Update toners quantity 
+    React.useEffect(() => {
+      let jwt = localStorage.getItem('jwt');
+      if (jwt) {
+        fetchSchools()
+      }
+    }, [loggedIn])
+
+  // update toners quantity 
 
   const changeQuantity = (id, data) => {
     mainApi.changeToner(id, data)
     .then((res) => {
       if (res) {
         setIsSuccess(true)
-        setSchools(schools)
+        fetchSchools()
       }
     })
     .catch((err) => {
       console.log(err)
+      setIsSuccess(false)
     })
   }
-
-  // const closePopup = () => {
-  //   setIsOpen(false)
-  // }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -176,8 +177,8 @@ const App = () => {
           <Route path="/schools" element={<Schools 
             schools={schools} 
             onChangeQuantity={changeQuantity}
-            isOpen={isOpen}
             isSuccess={isSuccess}
+            setIsSuccess={setIsSuccess}
             />}>
           </Route>
           <Route path="/signup" element={<Register 
@@ -191,11 +192,6 @@ const App = () => {
           <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
           </Route>
         </Routes>
-         {/* {isOpen && <Popup
-          isOpen={isOpen}
-          isSuccess={isSuccess}
-          onClose={closePopup}
-        />} */}
       </div>
     </CurrentUserContext.Provider>
   );

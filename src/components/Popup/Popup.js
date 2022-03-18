@@ -1,10 +1,11 @@
 import React from 'react';
 import "./Popup.css";
 
-const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
+const Popup = ({onClose, isSuccess, item, onUpdateQuantity, isCompleted}) => {
 
-  const SUCCESS_MESSAGE = "Quantity of toners has been updated!";
+  const SUCCESS_MESSAGE = "Toner quantity updated";
   const FAILED_MESSAGE = "Something went wrong, try again";
+  const LOW_STOCK = "Low stock!"
   
   const [quantity, setQuantity] = React.useState('');
 
@@ -47,6 +48,7 @@ const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
           <h3>Update quantity of selected toner</h3>
           <p className="infoitem">Toner name: <span>{item.toner_name}</span></p>
           <p className="infoitem">Toner colour: {item.colour}</p>
+          <p className="infoitem">Toner quantity: {item.quantity}</p>
           <form className="popup__input-container" name="quantity" onSubmit={handleSubmit}>
             <div className="quantity__container">
               <label className="quantity__lable" htmlFor="quantity">Enter new quantity</label>
@@ -68,7 +70,8 @@ const Popup = ({onClose, isSuccess, item, onUpdateQuantity}) => {
               Confirm
             </button>
           </form>
-          {isSuccess && <h2 className="success__title">{isSuccess ? SUCCESS_MESSAGE : FAILED_MESSAGE}</h2>}
+          {isSuccess && <h3 className="success__title">{isSuccess ? SUCCESS_MESSAGE : FAILED_MESSAGE}</h3>}
+          {(item.quantity <= 3) ? <h3 className="alert">{LOW_STOCK}</h3> : ""}
         </div>
       </>
     )
