@@ -1,7 +1,6 @@
 import React from 'react';
 import "./Profile.css";
 import { Link } from "react-router-dom";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {useFormValidation} from "../../utils/ValidateForm";
 
 const Profile = ({onUpdateUser, onSignOut, user}) => {
@@ -71,7 +70,7 @@ const Profile = ({onUpdateUser, onSignOut, user}) => {
         </div> 
         <button 
           type="submit" 
-          className={`button button_type_edit ${!validation.isFormValid ? "button_type_edit_disabled" : ""}`}
+          className={`button button_type_sign ${!validation.isFormValid ? "button_type_sign_disabled" : ""}`}
           disabled={!validation.isFormValid}>
           Edit
         </button>
