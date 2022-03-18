@@ -9,15 +9,16 @@ import React, { useState } from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi';
-import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 const App = () => {
 
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
-  const [currentUser, setCurrentUser] = React.useState({
+  const [user, setUser] = React.useState({
     name: '',
     email: '',
+    id: ''
   });
   const [schools, setSchools] = React.useState([]);
   const [isSuccess, setIsSuccess] = React.useState(false);
@@ -43,6 +44,21 @@ const App = () => {
     }); 
   }
 
+  // fetch user data
+
+  const fetchUser = (user) => {
+    mainApi.getUserData(user.id)
+    .then((myData) => {
+      console.log(myData)
+      setUser(myData)
+    })
+    .catch((err) => {
+      setIsLoading(false)
+      console.log(err);
+    });
+  }
+
+
   // user login
 
   const handleLogin = ({email, password}) => {
@@ -59,15 +75,7 @@ const App = () => {
           setIsLoading(false)
           return data
         }
-        mainApi.getUserData()
-        .then((myData) => {
-          const userData = JSON.parse(localStorage.getItem('user'));
-          setCurrentUser(userData)
-        })
-        .catch((err) => {
-          setIsLoading(false)
-          console.log(err);
-        });
+        fetchUser(user);
       })
       .catch((err) => {
         console.log(err);
@@ -79,13 +87,14 @@ const App = () => {
   React.useEffect(() => {
     if (localStorage.getItem('jwt')) {
       let jwt = localStorage.getItem('jwt');
-      auth.checkToken(jwt)
+      let loggedInUser = JSON.parse(localStorage.getItem('user'))
+      console.log(loggedInUser)
+      auth.checkToken(loggedInUser.id, jwt)
       .then((res) => {
           if (res) {
             setLoggedIn(true)
-            const userData = JSON.parse(localStorage.getItem('user'));
-            setCurrentUser(userData)
-            console.log(currentUser)
+            setUser(res)
+            console.log(res)
             if (location.pathname === '/schools') {
               navigate('/schools')
             } else if (location.pathname === '/profile') {
@@ -111,16 +120,16 @@ const App = () => {
     navigate('/');
     setLoggedIn(false);
     console.log(loggedIn)
-    setCurrentUser({});
+    setUser({});
   }
 
   // update user info
 
-  function handleUpdateUser(user) {
-    const userData = JSON.parse(localStorage.getItem('user'));
-    mainApi.changeUserData(userData.id)
+  function handleUpdateUser(id, data) {
+    mainApi.changeUserData(id, data)
     .then((data) => {
-      setCurrentUser(data);
+      setUser(data)
+      fetchUser(user)
     })
     .catch((err) => {
       console.log(err);
@@ -134,7 +143,7 @@ const App = () => {
       .then((data) => {
         localStorage.setItem('schools',  JSON.stringify(data));
         setSchools(data)
-        console.log(data)
+        // console.log(data)
       })
       .catch((err) => {
         console.log(err);
@@ -165,7 +174,6 @@ const App = () => {
   }
 
   return (
-    <CurrentUserContext.Provider value={currentUser}>
       <div className="App">
         <Header> 
           loggedIn={loggedIn}
@@ -189,11 +197,10 @@ const App = () => {
             onLogin={handleLogin}
             isLoading={isLoading} />}>
           </Route>
-          <Route path="/profile" element={<Profile onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
+          <Route path="/profile" element={<Profile user={user} onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
           </Route>
         </Routes>
       </div>
-    </CurrentUserContext.Provider>
   );
 }
 

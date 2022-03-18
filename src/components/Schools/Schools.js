@@ -2,11 +2,8 @@ import OneSchool from "./OneSchool/OneSchool";
 import "./Schools.css";
 import React from "react";
 
-const Schools = ({schools, setSchools, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
+const Schools = ({schools, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
 
-  // React.useEffect(() => {
-  //   setSchools(schools);
-  // }, [schools, setSchools]); 
 
   return (
     <section className="schools">

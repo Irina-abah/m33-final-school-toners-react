@@ -16,8 +16,7 @@ const Toner = ({ toner, onChangeQuantity, isSuccess, setIsSuccess}) => {
   }
 
   const tonerClassName = `infoitem ${(toner.quantity <= 3) ? "toner-low" : ""}`; 
-
-
+ 
   return (
     <li>
       <div className="toner-info">

@@ -26,8 +26,8 @@ export class MainApi {
     })
   }
 
-  getUserData() {
-    return fetch(`${this._address}/users/profile`, {
+  getUserData(user) {
+    return fetch(`${this._address}/users/profile/${user}`, {
       headers: {
         'Content-type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`
@@ -38,8 +38,8 @@ export class MainApi {
     })
   }
 
-  changeUserData(data) {
-    return fetch(`${this._address}/users/profile/${data}`, {
+  changeUserData(user, data) {
+    return fetch(`${this._address}/users/profile/${user}`, {
       method: 'PATCH',
       headers: {
         'Content-type': 'application/json',
@@ -71,7 +71,17 @@ export class MainApi {
     })
   }
 
-
+  getToners() {
+    return fetch(`${this._address}/toners`, {
+      headers: {
+        'Content-type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('jwt')}`
+      }
+    })
+    .then((res) => {
+      return this._checkResponse(res)
+    })
+  }
 
 }
 

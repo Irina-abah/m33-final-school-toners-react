@@ -19,7 +19,6 @@ const Popup = ({onClose, isSuccess, item, onUpdateQuantity, isCompleted}) => {
         quantity: quantity,
       });
       setQuantity("")
-      console.log(item.id)
   }
 
   function handleClick(evt) {

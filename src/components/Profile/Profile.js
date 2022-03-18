@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {useFormValidation} from "../../utils/ValidateForm";
 
-const Profile = ({onUpdateUser, onSignOut}) => {
+const Profile = ({onUpdateUser, onSignOut, user}) => {
 
-  const currentUser = React.useContext(CurrentUserContext);
+  // const currentUser = React.useContext(CurrentUserContext);
   const validation = useFormValidation();
 
   const {name, email} = validation.values;
 
   React.useEffect(() => {
       validation.setValues({
-        name: currentUser.name, 
-        email: currentUser.email})
-  }, [currentUser]);
+        name: user.name, 
+        email: user.email})
+  }, [user]);
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    onUpdateUser({ name, email});
+    onUpdateUser(user.id, { name, email});
     validation.resetForm();
   }
 
@@ -29,7 +29,7 @@ const Profile = ({onUpdateUser, onSignOut}) => {
         className="profile__info" 
         name="profile" 
         onSubmit={handleSubmit}>
-        <h2 className="profile__title">{`Hello ${currentUser.name}!`}</h2>
+        <h2 className="profile__title">{`Hello ${user.name}!`}</h2>
         <div className="profile__container">
           <div className="profile__container-item">
             <label className="profile__lable" htmlFor="profile-name">Your name</label>
