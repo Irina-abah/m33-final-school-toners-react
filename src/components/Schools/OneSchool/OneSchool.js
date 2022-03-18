@@ -6,41 +6,41 @@ import mainApi from "../../../utils/MainApi";
 
 const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
 
-  const [toners, setToners] = React.useState([]);
+  // const [toners, setToners] = React.useState([]);
 
-  React.useEffect(() => {
-    mainApi.getToners()
-    .then((data) => {
-      setToners(data)
-      console.log(data)
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-  }, [])
+  // React.useEffect(() => {
+  //   mainApi.getToners()
+  //   .then((data) => {
+  //     setToners(data)
+  //     console.log(data)
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   })
+  // }, [])
 
-  const locationid = school.locations.find((item) => {
-    return toners.find((toner) => {
-      let arr = []
-      if (toner.locationId === item.schoolId) {
-        arr.push(toner.locationId)
-      }
-      return arr;
-    })
-  })
+  // const locationid = school.locations.find((item) => {
+  //   return toners.find((toner) => {
+  //     let arr = []
+  //     if (toner.locationId === item.schoolId) {
+  //       arr.push(toner.locationId)
+  //     }
+  //     return arr;
+  //   })
+  // })
 
-  console.log(locationid)
+  // console.log(locationid)
 
-//   const toners = school.locations.forEach((location) => {
-//     let tonerlist = location.toners;
-//     console.log(tonerlist)
+  const toners = school.locations.forEach((location) => {
+    let tonerlist = location.toners;
+    console.log(tonerlist)
 
-//     const array = [...tonerlist]
-//     console.log(array)
-//     return array;
-// });
+    const array = [...tonerlist]
+    console.log(array)
+    return array;
+});
 
-// console.log(toners)
+console.log(toners)
 
 
   // const totalPrice = data.reduce(

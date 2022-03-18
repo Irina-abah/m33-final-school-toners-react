@@ -88,13 +88,11 @@ const App = () => {
     if (localStorage.getItem('jwt')) {
       let jwt = localStorage.getItem('jwt');
       let loggedInUser = JSON.parse(localStorage.getItem('user'))
-      console.log(loggedInUser)
       auth.checkToken(loggedInUser.id, jwt)
       .then((res) => {
           if (res) {
             setLoggedIn(true)
             setUser(res)
-            console.log(res)
             if (location.pathname === '/schools') {
               navigate('/schools')
             } else if (location.pathname === '/profile') {
