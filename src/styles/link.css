@@ -1,6 +1,7 @@
 .link:hover {
   opacity: 0.6;
   transition: all 0.7s ease;
+  color: #625368;
 }
 
 .link:focus {

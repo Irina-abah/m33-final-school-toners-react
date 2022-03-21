@@ -2,14 +2,28 @@ import { VscAccount } from 'react-icons/vsc';
 import { RiLogoutCircleLine } from "react-icons/ri";
 import "./Account.css";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
 const Account = ({onSignOut}) => {
 
   const navigate = useNavigate();
+  // const [loggedIn, setLoggedIn] = React.useState(false);
+  // const [user, setUser] = React.useState({
+  //   name: '',
+  //   email: '',
+  //   id: ''
+  // });
 
   function handleProfile() {
     navigate('/profile');
   }
+
+  // const handleLogout = () => {
+  //   localStorage.clear();
+  //   navigate('/');
+  //   setLoggedIn(false);
+  //   setUser({});
+  // }
 
   return (
     <div className="header-profile">

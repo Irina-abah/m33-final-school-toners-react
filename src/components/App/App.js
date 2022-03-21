@@ -1,15 +1,17 @@
 import './App.css';
+// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from '../Header/Header';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
 import Main from '../Main/Main';
 import Schools from '../Schools/Schools';
 import Profile from '../Profile/Profile';
-import React, { useState } from "react";
+import React from "react";
 import { Route, Routes, useNavigate, useLocation } from "react-router-dom";
 import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi';
-// import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { LoggedInUserContext } from '../../contexts/CurrentUserContext';
+import Footer from '../Footer/Footer';
 
 const App = () => {
 
@@ -27,7 +29,7 @@ const App = () => {
 
   // user registraition
 
-  const handleRegister = ({name, email, password}) => {
+    const handleRegister = ({name, email, password}) => {
     setIsLoading(true)
     return auth.register({name, email, password})
     .then((res) => {
@@ -69,6 +71,7 @@ const App = () => {
         if (!data) throw new Error('Wrong email or password')
         if (data.token) {
           setLoggedIn(true)
+          console.log(loggedIn)
           localStorage.setItem('jwt', data.token)
           localStorage.setItem('user', JSON.stringify(data))
           navigate('/schools')
@@ -92,6 +95,7 @@ const App = () => {
       .then((res) => {
           if (res) {
             setLoggedIn(true)
+            // console.log(loggedIn)
             setUser(res)
             if (location.pathname === '/schools') {
               navigate('/schools')
@@ -117,7 +121,6 @@ const App = () => {
     localStorage.clear();
     navigate('/');
     setLoggedIn(false);
-    console.log(loggedIn)
     setUser({});
   }
 
@@ -173,31 +176,35 @@ const App = () => {
 
   return (
       <div className="App">
-        <Header> 
-          loggedIn={loggedIn}
-          onSignOut={handleLogout}
-        </Header>
-        <Routes>
-          <Route path="/" index element={<Main />}>
-          </Route>
-          <Route path="/schools" element={<Schools 
-            schools={schools} 
-            onChangeQuantity={changeQuantity}
-            isSuccess={isSuccess}
-            setIsSuccess={setIsSuccess}
-            />}>
-          </Route>
-          <Route path="/signup" element={<Register 
-            onRegister={handleRegister}
-            isLoading={isLoading} />}>
-          </Route>
-          <Route path="/signin" element={<Login 
-            onLogin={handleLogin}
-            isLoading={isLoading} />}>
-          </Route>
-          <Route path="/profile" element={<Profile user={user} onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
-          </Route>
-        </Routes>
+        <LoggedInUserContext.Provider 
+          value={loggedIn}
+        >
+          <Header> 
+            onSignOut={handleLogout}
+          </Header>
+          <Routes>
+            <Route path="/" index element={<Main />}>
+            </Route>
+            <Route path="/schools" element={<Schools 
+              schools={schools} 
+              onChangeQuantity={changeQuantity}
+              isSuccess={isSuccess}
+              setIsSuccess={setIsSuccess}
+              />}>
+            </Route>
+            <Route path="/signup" element={<Register 
+              onRegister={handleRegister}
+              isLoading={isLoading} />}>
+            </Route>
+            <Route path="/signin" element={<Login 
+              onLogin={handleLogin}
+              isLoading={isLoading} />}>
+            </Route>
+            <Route path="/profile" element={<Profile user={user} onUpdateUser={handleUpdateUser} onSignOut={handleLogout}/>}>
+            </Route>
+          </Routes>
+          <Footer/>
+        </LoggedInUserContext.Provider>
       </div>
   );
 }

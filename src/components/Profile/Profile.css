@@ -48,19 +48,20 @@
   font-weight: 500;
   text-decoration: none;
   color: #EE3465;
+  text-align: center;
 }
 
 .form__input_type_profile {
   text-align: right;
   background-color: #FAFAFA;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.21;
   font-weight: 400;
 }
 
 .profile__lable {
   text-align: left;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.21;
   font-weight: 500;
 }

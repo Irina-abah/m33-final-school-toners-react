@@ -5,7 +5,6 @@ import {useFormValidation} from "../../utils/ValidateForm";
 
 const Profile = ({onUpdateUser, onSignOut, user}) => {
 
-  // const currentUser = React.useContext(CurrentUserContext);
   const validation = useFormValidation();
 
   const {name, email} = validation.values;
