@@ -1,28 +1,47 @@
-.promo__container {
-  height: 524px;
-  background-color: #DDDEE3;
+.promo {
+  height: 550px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-position: center;
+  align-items: flex-start;
+  /* text-align: center; */
   position: relative;
+  background: url("../../images/cartridge.jpg") no-repeat;
+  background-size: cover;
+  padding: 20px;
 }
 
 .promo__image {
-  width: 320px;
-  height: 320px;
-  position: absolute;
+  height: 100%;
+  /* width: 320px; */
+  /* height: 320px; */
+  /* position: absolute; */
 }
 
 .promo__title {
   font-size: 50px;
   line-height: 1.16;
-  max-width: 730px;
+  max-width: 650px;
   font-weight: 400;
   margin: 0;
   letter-spacing: -0.04em;
+}
+
+.promo__subtitle {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 450px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.04em;
+  margin: 20px 0 0 0;
+}
+
+.promo__span {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #333;
+  font-size: 18px;
 }
 
 .techs {
@@ -46,7 +65,7 @@
 
 .techs__item {
   border-radius: 10px;
-  background-color: #E8E8E8;
+  background-color: #c0b4c5;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,7 +80,7 @@
 }
 
 .techs__title {
-  margin: 90px 0 26px;
+  margin: 50px 0 26px;
   font-size: 50px;
   line-height: 1.16;
   font-weight: 400;
@@ -76,6 +95,38 @@
   margin: 0 0 100px;
   max-width: 460px;
   text-align: center;
+}
+
+.schools {
+  padding: 100px 0;
+  margin: 70px 0;
+}
+
+.schools__list {
+  max-width: 960px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 50px auto 0;
+}
+
+.school__item {
+  background-color: #625368;
+  padding: 40px;
+  /* max-height: 300px;
+  height: 100%; */
+}
+
+.green {
+  background-color: #ABB696;
+}
+
+.school__photo {
+  max-width: 230px;  
+  height: 100%;
 }
 
 @media screen and (max-width: 1023px) {
