@@ -14,7 +14,7 @@ const Register = ({onRegister, isLoading}) => {
   }
 
   return (
-    <section className="login">
+    <section className="sign">
       <UserEntry
         title="Welcome to New User"
         buttonName="Register"

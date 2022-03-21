@@ -13,13 +13,13 @@ function Login({onLogin, isLoading}) {
   }
 
   return (
-    <section className="login">
+    <section className="sign">
       <UserEntry
       title="Welcome back!"
       buttonName="Login"
       message="Don't have an account?"
       link="/signup"
-      linkName="Registration"
+      linkName="Register"
       onSubmit={handleSubmit}
       isFormValid={validation.isFormValid}
       isLoading={isLoading}>

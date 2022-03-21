@@ -7,3 +7,12 @@
   margin-right: 15px;
   align-items: center;
 }
+
+.profile-item-exit {
+  background-color: #625368;
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+}

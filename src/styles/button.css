@@ -47,10 +47,21 @@ box-shadow: none;
 }
 
 .button_type_account {
-  font-size: 13px;
-  line-height: 0.92;
+  font-size: 15px;
+  line-height: 1.4;
   font-weight: 500;
-  background-color: #fff;
+  background: none;
+  color: #666666;
+  margin: 0 15px 0 5px;
+}
+
+.button_type_exit {
+  font-size: 15px;
+  line-height: 1.4;
+  font-weight: 500;
+  background: none;
+  margin: 0 0 0 5px;
+  color: #fff;
 }
 
 .button_type_change {

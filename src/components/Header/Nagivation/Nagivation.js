@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import Account from '../../Profile/Account/Account';
-import { IoSchoolOutline } from "react-icons/io5";
-import { MdOutlineInventory2 } from "react-icons/md";
+import { MdOutlineSchool } from "react-icons/md";
+import { AiOutlinePrinter } from "react-icons/ai";
+import { RiHome5Line } from "react-icons/ri";
 import "./Navigation.css";
 import React from 'react';
 import { LoggedInUserContext } from "../../../contexts/CurrentUserContext";
@@ -11,25 +12,33 @@ const Navigation = ({onSignOut }) => {
   const loggedIn = React.useContext(LoggedInUserContext);
 
   return (
-    <div className="nav-items">
+    <>
       {loggedIn ? (
+        <>
         <nav className="navigation">
           <ul className="nav-list">
+          <div className="item-wrapper">
+              <RiHome5Line/>
+              <li className="nav-item">
+                <NavLink className="link" activeClassName="link_active" to="/">Home</NavLink>
+              </li>
+            </div>
             <div className="item-wrapper">
-              <IoSchoolOutline/>
+              <MdOutlineSchool/>
               <li className="nav-item">
                 <NavLink className="link"to="/schools">All Schools</NavLink>
               </li>
             </div>
             <div className="item-wrapper">
-              <MdOutlineInventory2/>
+              <AiOutlinePrinter/>
               <li className="nav-item">
                 <NavLink className="link" to="/toners">Toners</NavLink>
               </li>
             </div>
           </ul>
+          </nav>
           <Account onSignOut={onSignOut}/>
-        </nav>
+          </>
       ) : (
         <nav className="navigation">
           <ul className="nav-list">
@@ -42,7 +51,7 @@ const Navigation = ({onSignOut }) => {
           </ul>
         </nav>
       )}
-    </div>
+    </>
   )
 };
 

@@ -10,10 +10,15 @@
   list-style: none;
   display: flex;
   flex-direction: row;
+  margin: 0;
 }
 
 .nav-item {
-  margin-right: 15px;
+  margin: 0 15px 0 5px;
+}
+
+.navigation {
+  display: flex;
 }
 
 .item-wrapper {
