@@ -1,12 +1,14 @@
 import OneSchool from "./OneSchool/OneSchool";
+import SearchBar from "../SearchBar/SearchBar";
 import "./Schools.css";
 import React from "react";
 
-const Schools = ({schools, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
+const Schools = ({schools, onHandleSubmit, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
 
   return (
       <section className="schools">
         <h2 className="section-title">List of all schools of Laurus Trust</h2>
+        <SearchBar onSubmit={onHandleSubmit}/>
         <ol className="schools-container">
           {
             schools.map((item, i) => (

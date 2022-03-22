@@ -11,6 +11,7 @@ import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi';
 import { LoggedInUserContext } from '../../contexts/CurrentUserContext';
 import Footer from '../Footer/Footer';
+import { searchSchoolByKeyword } from '../../utils/searchSchool';
 
 const App = () => {
 
@@ -181,6 +182,19 @@ const App = () => {
     })
   }
 
+  //search schools 
+
+  const handleSearch = (input) => {
+    const searchedSchools = searchSchoolByKeyword(schools, input);
+    localStorage.setItem('searchedSchools', JSON.stringify(searchedSchools));
+
+    setSchools(searchedSchools)
+
+    if (input == "") {
+      fetchSchools()
+    }
+  }
+
   return (
       <div className="App">
         <LoggedInUserContext.Provider 
@@ -195,6 +209,7 @@ const App = () => {
               onChangeQuantity={changeQuantity}
               isSuccess={isSuccess}
               setIsSuccess={setIsSuccess}
+              onHandleSubmit={handleSearch}
               />}>
             </Route>
             <Route path="/signup" element={<Register 
