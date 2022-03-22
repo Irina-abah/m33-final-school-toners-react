@@ -33,9 +33,16 @@
 }
 
 .total {
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: 500;
   padding-left: 10px;
   /* text-align: center; */
+}
+
+.total-title {
+  margin: 52px 0 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.total-list {
+  padding-top: 8px;
 }

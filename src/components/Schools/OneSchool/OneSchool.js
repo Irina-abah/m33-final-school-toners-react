@@ -1,42 +1,46 @@
 import Location from "./Location/Location";
 import "./OneSchool.css";
-import React, { useLayoutEffect } from "react";
-
-import mainApi from "../../../utils/MainApi";
+import React from "react";
 
 const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
 
-  // const locationid = school.locations.find((item) => {
-  //   return toners.find((toner) => {
-  //     let arr = []
-  //     if (toner.locationId === item.schoolId) {
-  //       arr.push(toner.locationId)
-  //     }
-  //     return arr;
-  //   })
-  // })
+  let toners = [];
+  school.locations.forEach((location) => {
+      location.toners.forEach((toner) => {
+          toners.push(toner);
+      });
+  });
 
-  // console.log(locationid)
+  const result = toners.reduce((all, {toner_name: d, quantity: a}) => {
 
-//   const toners = school.locations.forEach((location) => {
-//     let tonerlist = location.toners;
-//     console.log(tonerlist)
+    all[d] = (all[d] || 0) + a;
+    return all;
 
-//     const array = [...tonerlist]
-//     console.log(array)
-//     return array;
-// });
+  }, {});
 
-// console.log(toners)
+  const sumToners = Object.keys(result).map(key => ( {toner_name: key, quantity: result[key]}))
 
+  // let toners = [];
+  //   school.locations.forEach((location) => {
+  //       location.toners.forEach((toner) => {
+  //           // If an index is not found (returns -1), push new toner into the array. Otherwise, increase toner quantity.
+  //           const foundIndex = toners.findIndex(e => e.toner_name === toner.toner_name)
+  //           if (foundIndex === -1)
+  //           {
+  //               // Toner doesn't exist, add new
+  //               toners.push(toner);
+  //           }
+  //           else
+  //           {
+  //               // Toner exists, add additional quantity
+  //               toners[foundIndex].quantity += toner.quantity;
+  //           }
+  //       });
+  //   });
 
-  // const totalPrice = data.reduce(
-  //   function (sum, item) {
-  //     return sum + item.quantity
-  //   }, 0
-  // )
+  // console.log(res);
 
-  // const locations = [].concat(...school.locations);
+  // console.log(toners)
 
   return (
     <>
@@ -60,10 +64,15 @@ const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose})
           </ul>
         </div>
       </div>
-      <p className="total">Total amount of toners:</p>
-      {/* <div>toners
-        {toners}
-      </div> */}
+      <div className="total">
+      <h4 className="total-title">Total amount of toners:</h4>
+      <div className="total-list">
+        {sumToners.map((toner) => (
+            <p className="infoitem" key={toner.id}>{toner.toner_name}: {toner.quantity}</p>
+          ))}
+      </div>
+        
+      </div>
     </li>
     </>
   )
