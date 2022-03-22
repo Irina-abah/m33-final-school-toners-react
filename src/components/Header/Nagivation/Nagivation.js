@@ -20,19 +20,23 @@ const Navigation = ({onSignOut }) => {
           <div className="item-wrapper">
               <RiHome5Line/>
               <li className="nav-item">
-                <NavLink className="link" activeClassName="link_active" to="/">Home</NavLink>
+                <NavLink className={({ isActive }) =>
+              isActive ? "link_active" : "link"} to="/">Home</NavLink>
               </li>
             </div>
             <div className="item-wrapper">
               <MdOutlineSchool/>
               <li className="nav-item">
-                <NavLink className="link"to="/schools">All Schools</NavLink>
+                {/* <NavLink className="link" activeClassName="link_active" to="/schools">All Schools</NavLink> */}
+                <NavLink className={({ isActive }) =>
+              isActive ? "link_active" : "link"} to="/schools">All Schools</NavLink>
               </li>
             </div>
             <div className="item-wrapper">
               <AiOutlinePrinter/>
               <li className="nav-item">
-                <NavLink className="link" to="/toners">Toners</NavLink>
+                <NavLink className={({ isActive }) =>
+              isActive ? "link_active" : "link"} to="/toners">Toners</NavLink>
               </li>
             </div>
           </ul>

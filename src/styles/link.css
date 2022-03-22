@@ -4,11 +4,23 @@
   color: #625368;
 }
 
+.link_active {
+  text-decoration: underline;
+  color: #666666;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+.link {
+  text-decoration: none;
+  color: #666666;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.4;
+}
+
 .link:focus {
   outline: 0;
   box-shadow: none;
-}
-
-.link_active {
-  text-decoration: underline;
 }
