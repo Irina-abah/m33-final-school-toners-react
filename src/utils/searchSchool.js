@@ -1,9 +1,13 @@
 function searchSchoolByKeyword(schools, input) {
   const searchedSchools = schools.filter(school => {
-    return school.school_name.toLowerCase().includes(input.toLowerCase())
-   }) 
+    if (input === '') {
+      return school;
+    } else if (school.school_name.toLowerCase().includes(input.toLowerCase())) {
+      return school;
+    }
+  }) 
 
-   return searchedSchools
+   return searchedSchools;
 } 
 
 export { searchSchoolByKeyword };

@@ -11,7 +11,6 @@ import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi';
 import { LoggedInUserContext } from '../../contexts/CurrentUserContext';
 import Footer from '../Footer/Footer';
-import { searchSchoolByKeyword } from '../../utils/searchSchool';
 
 const App = () => {
 
@@ -24,7 +23,6 @@ const App = () => {
   });
   const [schools, setSchools] = React.useState([]);
   const [isSuccess, setIsSuccess] = React.useState(false);
-  const [schoolsNotFound, setSchoolsNotFound] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -182,27 +180,6 @@ const App = () => {
     })
   }
 
-  // search schools 
-
-  const handleSearch = (input) => {
-
-    const allSchools = JSON.parse(localStorage.getItem('schools'));
-    const searchedSchools = searchSchoolByKeyword(allSchools, input);
-    localStorage.setItem('searchedSchools', JSON.stringify(searchedSchools));
-
-    setSchools(searchedSchools)
-    setSchoolsNotFoundMessage(searchedSchools)
-
-  }
-
-  function setSchoolsNotFoundMessage(schools) {
-    if (schools.length === 0) {
-      setSchoolsNotFound(true)
-    } else {
-      setSchoolsNotFound(false)
-    }
-  }
-
   return (
       <div className="App">
         <LoggedInUserContext.Provider 
@@ -217,8 +194,6 @@ const App = () => {
               onChangeQuantity={changeQuantity}
               isSuccess={isSuccess}
               setIsSuccess={setIsSuccess}
-              onHandleSubmit={handleSearch}
-              schoolsNotFound={schoolsNotFound}
               />}>
             </Route>
             <Route path="/signup" element={<Register 
