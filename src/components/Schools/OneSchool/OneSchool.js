@@ -38,26 +38,27 @@ const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose})
 
   // const locations = [].concat(...school.locations);
 
-
   return (
     <>
     <li className="school">
-      <h3 className="school-name">{school.school_name}</h3>
-      <div className="locations">
-        <h4 className="locations-title">Locations:</h4>
-        <ul className="locations-list">
-          { school.locations.map((location, i) => (
-            <Location 
-              key={i} 
-              location={location} 
-              onChangeQuantity={onChangeQuantity} 
-              setIsSuccess={setIsSuccess}
-              isSuccess={isSuccess}
-              onClose={onClose}
-              />
-          ))
-          }
-        </ul>
+      <div className="school-wrap">
+        <h3 className="school-name">{school.school_name}</h3>
+        <div className="locations">
+          <h4 className="locations-title">Locations:</h4>
+          <ul className="locations-list">
+            { school.locations.map((location, i) => (
+              <Location 
+                key={i} 
+                location={location} 
+                onChangeQuantity={onChangeQuantity} 
+                setIsSuccess={setIsSuccess}
+                isSuccess={isSuccess}
+                onClose={onClose}
+                />
+            ))
+            }
+          </ul>
+        </div>
       </div>
       <p className="total">Total amount of toners:</p>
       {/* <div>toners

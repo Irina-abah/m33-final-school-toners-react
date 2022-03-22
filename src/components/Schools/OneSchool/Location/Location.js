@@ -3,6 +3,8 @@ import "./Location.css";
 
 const Location = ({location, onChangeQuantity, setIsSuccess, isSuccess, onClose}) => {
   
+  const tonersClassName = `toners ${(location.toners.length > 1) ? "toners-many" : ""}`; 
+
   return (
     <li className="location">
       <div className="location-info">
@@ -10,13 +12,14 @@ const Location = ({location, onChangeQuantity, setIsSuccess, isSuccess, onClose}
         <p className="infoitem">Printer model: {location.printer_model}</p>
         <p className="infoitem">Printer type: {location.printer_type}</p>
       </div>
-      <div className="toners">
+      <div className={tonersClassName}>
         <h4 className="toners-title">Toners:</h4>
         <ul className="toners-list">
           { location.toners.map((toner, i) => (
             <Toner 
               key={i} 
               toner={toner} 
+              toners={location.toners}
               id={toner.id}
               quantity={toner.quantity}
               onChangeQuantity={onChangeQuantity}

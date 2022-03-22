@@ -1,5 +1,4 @@
 import './App.css';
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from '../Header/Header';
 import Register from '../Register/Register';
 import Login from '../Login/Login';
@@ -116,17 +115,25 @@ const App = () => {
   }, [navigate, loggedIn, location.pathname]);
 
   // log out from account
+
+  const handleLoggedIn = () => {
+    setLoggedIn(false)
+  }
+
+  const handleUser = () => {
+    setUser({});
+  }
   
   const handleLogout = () => {
     localStorage.clear();
     navigate('/');
-    setLoggedIn(false);
-    setUser({});
+    handleLoggedIn();
+    handleUser()
   }
 
   // update user info
 
-  function handleUpdateUser(id, data) {
+  const handleUpdateUser = (id, data) => {
     mainApi.changeUserData(id, data)
     .then((data) => {
       setUser(data)
@@ -179,9 +186,7 @@ const App = () => {
         <LoggedInUserContext.Provider 
           value={loggedIn}
         >
-          <Header> 
-            onSignOut={handleLogout}
-          </Header>
+          <Header onSignOut={handleLogout}/> 
           <Routes>
             <Route path="/" index element={<Main />}>
             </Route>

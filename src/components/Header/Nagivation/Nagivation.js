@@ -7,7 +7,7 @@ import "./Navigation.css";
 import React from 'react';
 import { LoggedInUserContext } from "../../../contexts/CurrentUserContext";
 
-const Navigation = ({onSignOut }) => {
+const Navigation = ({onSignOut}) => {
 
   const loggedIn = React.useContext(LoggedInUserContext);
 
@@ -27,7 +27,6 @@ const Navigation = ({onSignOut }) => {
             <div className="item-wrapper">
               <MdOutlineSchool/>
               <li className="nav-item">
-                {/* <NavLink className="link" activeClassName="link_active" to="/schools">All Schools</NavLink> */}
                 <NavLink className={({ isActive }) =>
               isActive ? "link_active" : "link"} to="/schools">All Schools</NavLink>
               </li>
@@ -41,7 +40,9 @@ const Navigation = ({onSignOut }) => {
             </div>
           </ul>
           </nav>
-          <Account onSignOut={onSignOut}/>
+          <Account 
+            onSignOut={onSignOut}
+          />
           </>
       ) : (
         <nav className="navigation">

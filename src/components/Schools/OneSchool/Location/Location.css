@@ -2,7 +2,13 @@
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid #abb696;
+  padding: 8px 0 0 0;
+  margin-right: 15px;
   /* border: 1px solid red; */
+}
+
+.location:last-child {
+  border-bottom: none;
 }
 
 .toners-list {
@@ -16,19 +22,27 @@
 }
 
 .toners {
-  min-height: 100px;
-  max-height: 200px;
-  /* height: 100%; */
+  min-height: 97px;
+  max-height: 170px; 
   width: 100%;
-  overflow-y: scroll;
   box-sizing: content-box;
+}
+
+.toners-many {
+  overflow-y: scroll;
 }
 
 .toners-title {
   position: absolute;
   top: -20px;
-  left: 400px;
+  left: 335px;
   font-size: 18px;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin: 20px 0 10px 0;
+}
+
+.toner-info {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #abb696;
+  width: 80%;
 }
