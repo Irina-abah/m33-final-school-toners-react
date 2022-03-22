@@ -34,18 +34,18 @@ const SearchBar = ({onSubmit}) => {
           <RiSearchLine className="search-form__icon"/>
           <div className="form-wrapper">
             <input 
-              className="form-input search-form__input_type_movie"
+              className="form-input search-form__input_type_school"
               type="text"
               id="search"
               name="movie-search"
               onChange={handleChange}
-              placeholder="School"
-              title="Enter first letter of school name"
+              placeholder="Enter school name"
+              title="School name"
               minLength="1"
               maxLength="30"
               required />
             <span
-            className={`input-error input-error_type_movie ${!isFormValid && "input-error_active"}`} 
+            className={`input-error input-error_type_school ${!isFormValid && "input-error_active"}`} 
             id="search-error">{error}
             </span>
           </div>
@@ -53,7 +53,7 @@ const SearchBar = ({onSubmit}) => {
         <button 
           type="submit" 
           className={`button button_type_search ${!isFormValid ? "button_type_search_disabled" : ""}`} 
-          aria-label="search a movie">Search
+          aria-label="search school">Search
         </button>
             
       </form>

@@ -24,6 +24,7 @@ const App = () => {
   });
   const [schools, setSchools] = React.useState([]);
   const [isSuccess, setIsSuccess] = React.useState(false);
+  const [schoolsNotFound, setSchoolsNotFound] = React.useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -152,7 +153,6 @@ const App = () => {
       .then((data) => {
         localStorage.setItem('schools',  JSON.stringify(data));
         setSchools(data)
-        // console.log(data)
       })
       .catch((err) => {
         console.log(err);
@@ -182,16 +182,24 @@ const App = () => {
     })
   }
 
-  //search schools 
+  // search schools 
 
   const handleSearch = (input) => {
-    const searchedSchools = searchSchoolByKeyword(schools, input);
+
+    const allSchools = JSON.parse(localStorage.getItem('schools'));
+    const searchedSchools = searchSchoolByKeyword(allSchools, input);
     localStorage.setItem('searchedSchools', JSON.stringify(searchedSchools));
 
     setSchools(searchedSchools)
+    setSchoolsNotFoundMessage(searchedSchools)
 
-    if (input == "") {
-      fetchSchools()
+  }
+
+  function setSchoolsNotFoundMessage(schools) {
+    if (schools.length === 0) {
+      setSchoolsNotFound(true)
+    } else {
+      setSchoolsNotFound(false)
     }
   }
 
@@ -210,6 +218,7 @@ const App = () => {
               isSuccess={isSuccess}
               setIsSuccess={setIsSuccess}
               onHandleSubmit={handleSearch}
+              schoolsNotFound={schoolsNotFound}
               />}>
             </Route>
             <Route path="/signup" element={<Register 
