@@ -3,6 +3,7 @@ cursor: pointer;
 border: none;
 padding: 0;
 border-radius: 3px;
+font-size: 15px;
 }
 
 .button:hover {
@@ -17,7 +18,6 @@ box-shadow: none;
 
 .button_type_sign {
   background-color: #625368;
-  font-size: 13px;
   line-height: 1.21;
   font-weight: 500;
   color: #fff;
@@ -31,7 +31,6 @@ box-shadow: none;
 }
 
 .button_type_edit {
-  font-size: 13px;
   line-height: 1.21;
   font-weight: 400;
   background-color: #625368;
@@ -47,7 +46,6 @@ box-shadow: none;
 }
 
 .button_type_account {
-  font-size: 15px;
   line-height: 1.4;
   font-weight: 500;
   background: none;
@@ -56,7 +54,6 @@ box-shadow: none;
 }
 
 .button_type_exit {
-  font-size: 15px;
   line-height: 1.4;
   font-weight: 500;
   background: none;
@@ -67,8 +64,8 @@ box-shadow: none;
 .button_type_change {
   background-color: #c5c9bc;
   padding: 0 8px;
-  font-size: 13px;
   margin: 0 0 0 20px;
+  font-size: 13px;
 }
 
 .button_type_close {
@@ -92,15 +89,15 @@ box-shadow: none;
   margin: 10px 0 0 0;
 }
 
-.button_type_search {
-  width: 80px;
-  height: 34px;
-  border-radius: 5px;
-  background-color: #625368;
-  color: #fff;
-}
-
 .button_type_search_disabled {
   background-color: #EBEBEB;
   pointer-events: none;
+}
+
+@media screen and (max-width: 1023px) {
+
+  .button {
+    font-size: 13px;
+  }
+
 }

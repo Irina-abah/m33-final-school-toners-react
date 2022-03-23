@@ -44,3 +44,31 @@
   border-radius: 3px;
   margin: 0 0 0 20px;
 }
+
+@media screen and (max-width: 1023px) {
+
+  .item-wrapper {
+    margin-right: 8px;
+  }
+
+}
+
+@media screen and (max-width: 767px) {
+
+  .nav-mobile {
+    height: 100vh;
+    max-width: 520px;
+    width: 100%;
+    background-color: #fff;
+    top: 0;
+    right: 0;
+    position: fixed;
+    padding: 159px 0 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+}

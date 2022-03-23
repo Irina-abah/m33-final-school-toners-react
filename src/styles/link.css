@@ -24,3 +24,15 @@
   outline: 0;
   box-shadow: none;
 }
+
+@media screen and (max-width: 1023px) {
+
+  .link_active {
+    font-size: 13px;
+  }
+  
+  .link {
+    font-size: 13px;
+  }
+
+}

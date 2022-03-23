@@ -12,10 +12,6 @@ const Account = ({onSignOut}) => {
     navigate('/profile');
   }
 
-  // const handleLogout = (e) => {
-  //   onSignOut(e)
-  // }
-
   return (
     <div className="header-profile">
       <div className="profile-item">

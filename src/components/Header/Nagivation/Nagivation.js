@@ -7,14 +7,14 @@ import "./Navigation.css";
 import React from 'react';
 import { LoggedInUserContext } from "../../../contexts/CurrentUserContext";
 
-const Navigation = ({onSignOut}) => {
+const Navigation = ({onSignOut, mobile}) => {
 
   const loggedIn = React.useContext(LoggedInUserContext);
 
   return (
     <>
       {loggedIn ? (
-        <>
+        <React.Fragment className={mobile ? "nav-mobile" : "" }>
         <nav className="navigation">
           <ul className="nav-list">
           <div className="item-wrapper">
@@ -31,19 +31,12 @@ const Navigation = ({onSignOut}) => {
                 isActive ? "link_active" : "link"} to="/schools">All Schools</NavLink>
               </li>
             </div>
-            <div className="item-wrapper">
-              <AiOutlinePrinter/>
-              <li className="nav-item">
-                <NavLink className={({ isActive }) =>
-                isActive ? "link_active" : "link"} to="/toners">Toners</NavLink>
-              </li>
-            </div>
           </ul>
           </nav>
           <Account 
             onSignOut={onSignOut}
           />
-          </>
+          </React.Fragment>
       ) : (
         <nav className="navigation-login">
           <ul className="nav-list">
