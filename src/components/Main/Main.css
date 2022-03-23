@@ -135,6 +135,10 @@
     padding: 90px 50px;
   }
 
+  .main-schools {
+    padding: 90px 50px;
+  }
+
   .techs__title {
     margin: 80px 0 22px;
   }
@@ -158,6 +162,10 @@
 @media screen and (max-width: 767px) {
 
   .techs {
+    padding: 70px 18px;
+  }
+
+  .main-schools {
     padding: 70px 18px;
   }
 
@@ -191,6 +199,19 @@
     font-size: 31px;
     line-height: 1.16;
     width: calc(100% - 14px*2);
+  }
+
+  .techs__list {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .techs__item {
+    width: 84px;
+    height: 57px;
   }
 
 }
