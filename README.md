@@ -10,7 +10,8 @@ It is a Graduation project for Code Nation, https://wearecodenation.com/.
 * user registration and authorization,
 * viewing all available schools information,
 * changing toners levels per each toner,
-* total amount of each toner per school
+* total amount of each toner per school,
+* storing data in local storage,
 * user profile editing,
 * inputs data validation,
 * responsive design.
@@ -25,6 +26,4 @@ It is a Graduation project for Code Nation, https://wearecodenation.com/.
 
 **Project navigation**
 
-To run frontend in development mode, run the command `npm start`, to create a production build, use `npm build`. 
-
-Link to project: https://movie-portal.nomoredomains.monster
+To run frontend in development mode, run the command `npm start`, to create a production build, use `npm run build`. 
