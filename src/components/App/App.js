@@ -70,7 +70,6 @@ const App = () => {
         if (!data) throw new Error('Wrong email or password')
         if (data.token) {
           setLoggedIn(true)
-          console.log(loggedIn)
           localStorage.setItem('jwt', data.token)
           localStorage.setItem('user', JSON.stringify(data))
           navigate('/schools')
@@ -94,7 +93,6 @@ const App = () => {
       .then((res) => {
           if (res) {
             setLoggedIn(true)
-            // console.log(loggedIn)
             setUser(res)
             if (location.pathname === '/schools') {
               navigate('/schools')

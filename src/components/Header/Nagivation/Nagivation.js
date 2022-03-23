@@ -21,21 +21,21 @@ const Navigation = ({onSignOut}) => {
               <RiHome5Line/>
               <li className="nav-item">
                 <NavLink className={({ isActive }) =>
-              isActive ? "link_active" : "link"} to="/">Home</NavLink>
+                isActive ? "link_active" : "link"} to="/">Home</NavLink>
               </li>
             </div>
             <div className="item-wrapper">
               <MdOutlineSchool/>
               <li className="nav-item">
                 <NavLink className={({ isActive }) =>
-              isActive ? "link_active" : "link"} to="/schools">All Schools</NavLink>
+                isActive ? "link_active" : "link"} to="/schools">All Schools</NavLink>
               </li>
             </div>
             <div className="item-wrapper">
               <AiOutlinePrinter/>
               <li className="nav-item">
                 <NavLink className={({ isActive }) =>
-              isActive ? "link_active" : "link"} to="/toners">Toners</NavLink>
+                isActive ? "link_active" : "link"} to="/toners">Toners</NavLink>
               </li>
             </div>
           </ul>
@@ -45,12 +45,12 @@ const Navigation = ({onSignOut}) => {
           />
           </>
       ) : (
-        <nav className="navigation">
+        <nav className="navigation-login">
           <ul className="nav-list">
             <li className="nav-item">
               <NavLink className="link header__link_type_signup" to="/signup">Register</NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item-sign">
               <NavLink className="link header__link_type_signin" to="/signin">Log in</NavLink>
             </li>
           </ul>
@@ -59,30 +59,5 @@ const Navigation = ({onSignOut}) => {
     </>
   )
 };
-
-// const Navigation = ({onSignOut }) => {
-//   return (
-//     <div className="nav-items">
-//         <nav>
-//           <ul className="nav-list">
-//             <div className="item-wrapper">
-//               <IoSchoolOutline/>
-//               <li className="nav-item">
-//                 <NavLink className="link"to="/schools">All Schools</NavLink>
-//               </li>
-//             </div>
-//             <div className="item-wrapper">
-//               <MdOutlineInventory2/>
-//               <li className="nav-item">
-//                 <NavLink className="link" to="/toners">Toners</NavLink>
-//               </li>
-//             </div>
-//           </ul>
-//         </nav>
-//         <Account onSignOut={onSignOut}/>
-//     </div>
-//   )
-// };
-
 
 export default Navigation;

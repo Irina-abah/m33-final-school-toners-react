@@ -9,9 +9,9 @@ const Header = ({onSignOut}) => {
       <Link className="header-link" to="/">
         <img className="header-logo" src={logo} alt="Laurus Trust logo"/>
       </Link>
-      <Navigation>
+      <Navigation
       onSignOut={onSignOut}
-      </Navigation> 
+      />
     </header>
   )
 };

@@ -12,9 +12,9 @@ const Account = ({onSignOut}) => {
     navigate('/profile');
   }
 
-  const handleLogout = (e) => {
-    onSignOut()
-  }
+  // const handleLogout = (e) => {
+  //   onSignOut(e)
+  // }
 
   return (
     <div className="header-profile">
@@ -24,7 +24,7 @@ const Account = ({onSignOut}) => {
       </div>
       <div className="profile-item-exit">
         <RiLogoutCircleLine/>
-        <button className="button button_type_exit" type="button" onClick={handleLogout}>Log out</button>
+        <button className="button button_type_exit" type="button" onClick={onSignOut}>Log out</button>
       </div>
     </div>
   )
