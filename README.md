@@ -5,6 +5,8 @@ Frontend is done using React JS.
 
 It is a Graduation project for Code Nation, https://wearecodenation.com/.
 
+Link to a project: https://m33-final-school-toners.netlify.app/ 
+
 **Functionality**
 
 * user registration and authorization,
