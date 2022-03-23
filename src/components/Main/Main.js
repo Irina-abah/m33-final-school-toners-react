@@ -34,7 +34,7 @@ const Main = () => {
       <section className="techs">
         <h2 className="section__title">Technologies</h2>
         <div className="techs__info">
-          <h3 className="techs__title">10 tecnhologies</h3>
+          <h3 className="techs__title">10 technologies</h3>
           <p className="techs__subtitle">Technology stack used for this project:</p>
         </div>
         <ul className="techs__list">
