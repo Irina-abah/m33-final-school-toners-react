@@ -1,5 +1,5 @@
-// export const BASE_URL = 'https://api.movie-portal.nomoredomains.monster';
-export const BASE_URL = 'http://localhost:3005';
+export const BASE_URL = "https://m33-final-school-toners-api.herokuapp.com";
+// export const BASE_URL = 'http://localhost:3005';
 
 export const register = ({name, email, password}) => {
     return fetch(`${BASE_URL}/signup`, {
