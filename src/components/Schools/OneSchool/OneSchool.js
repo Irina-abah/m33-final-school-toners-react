@@ -67,8 +67,8 @@ const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose})
       <div className="total">
       <h4 className="total-title">Total amount of toners:</h4>
       <div className="total-list">
-        {sumToners.map((toner) => (
-            <p className="infoitem" key={toner.id}>{toner.toner_name}: {toner.quantity}</p>
+        {sumToners.map((toner, i) => (
+            <p className="infoitem" key={i}>{toner.toner_name}: {toner.quantity}</p>
           ))}
       </div>
         
