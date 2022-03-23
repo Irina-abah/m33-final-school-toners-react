@@ -20,28 +20,6 @@ const OneSchool = ({school, onChangeQuantity, setIsSuccess, isSuccess, onClose})
 
   const sumToners = Object.keys(result).map(key => ( {toner_name: key, quantity: result[key]}))
 
-  // let toners = [];
-  //   school.locations.forEach((location) => {
-  //       location.toners.forEach((toner) => {
-  //           // If an index is not found (returns -1), push new toner into the array. Otherwise, increase toner quantity.
-  //           const foundIndex = toners.findIndex(e => e.toner_name === toner.toner_name)
-  //           if (foundIndex === -1)
-  //           {
-  //               // Toner doesn't exist, add new
-  //               toners.push(toner);
-  //           }
-  //           else
-  //           {
-  //               // Toner exists, add additional quantity
-  //               toners[foundIndex].quantity += toner.quantity;
-  //           }
-  //       });
-  //   });
-
-  // console.log(res);
-
-  // console.log(toners)
-
   return (
     <>
     <li className="school">

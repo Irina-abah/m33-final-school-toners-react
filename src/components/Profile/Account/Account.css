@@ -28,3 +28,18 @@
   }
 
 }
+
+@media screen and (max-width: 767px) {
+
+  .header-profile {
+    flex-direction: column;
+    width: 50%;
+    margin: 50% auto 0;
+    align-items: center;
+  }
+
+  .profile-item-exit {
+    margin-top: 20px
+  }
+
+}

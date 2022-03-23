@@ -21,3 +21,24 @@
 .schools_not-found {
   color: #EE3465;
 }
+
+@media screen and (max-width: 767px) {
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 0;
+  }
+
+  .schools_not-found {
+    text-align: center;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+
+  .section-title {
+    font-size: 22px;
+  }
+
+}

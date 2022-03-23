@@ -8,7 +8,6 @@
 
 .locations {
   position: relative;
-  /* border: 1px solid red; */
 }
 
 .locations-title {
@@ -34,7 +33,6 @@
 
 .total {
   padding-left: 10px;
-  /* text-align: center; */
 }
 
 .total-title {
@@ -45,4 +43,37 @@
 
 .total-list {
   padding-top: 8px;
+}
+
+@media screen and (max-width: 767px) {
+
+  .school {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+    min-width: 415px;
+  }
+
+  .total {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .total-title {
+    margin-top: 10px;
+  }
+
+  .locations {
+    border-bottom: 1px solid #abb696;
+    padding-bottom: 10px;
+  }
+
+  .total-list {
+    padding-top: 0
+  }
+
+  .location {
+    margin-right: 0;
+  }
+
 }

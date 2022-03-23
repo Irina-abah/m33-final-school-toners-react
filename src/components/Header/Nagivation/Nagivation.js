@@ -1,20 +1,27 @@
 import { NavLink } from 'react-router-dom';
 import Account from '../../Profile/Account/Account';
 import { MdOutlineSchool } from "react-icons/md";
-import { AiOutlinePrinter } from "react-icons/ai";
+import { GiHamburgerMenu } from "react-icons/gi";
 import { RiHome5Line } from "react-icons/ri";
 import "./Navigation.css";
 import React from 'react';
 import { LoggedInUserContext } from "../../../contexts/CurrentUserContext";
 
-const Navigation = ({onSignOut, mobile}) => {
+const Navigation = ({onSignOut}) => {
 
   const loggedIn = React.useContext(LoggedInUserContext);
+
+  const [mobile, setMobile] = React.useState(false);
+
+  const handleClick = () => {
+    setMobile(!mobile)
+  }
 
   return (
     <>
       {loggedIn ? (
-        <React.Fragment className={mobile ? "nav-mobile" : "" }>
+        <>
+        <div className={mobile ? "nav-mobile" : "nav-wrap"}>
         <nav className="navigation">
           <ul className="nav-list">
           <div className="item-wrapper">
@@ -36,7 +43,11 @@ const Navigation = ({onSignOut, mobile}) => {
           <Account 
             onSignOut={onSignOut}
           />
-          </React.Fragment>
+          </div>
+          {mobile && <button type="button" className="button button_type_close" onClick={handleClick} aria-label="close"> 
+          </button>}
+          <GiHamburgerMenu className="hamburger" onClick={handleClick}/>
+          </>
       ) : (
         <nav className="navigation-login">
           <ul className="nav-list">

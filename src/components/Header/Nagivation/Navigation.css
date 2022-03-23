@@ -55,20 +55,43 @@
 
 @media screen and (max-width: 767px) {
 
+  .nav-wrap {
+    display: none;
+  }
+
   .nav-mobile {
-    height: 100vh;
-    max-width: 520px;
+    height: 40vh;
+    max-width: 400px;
     width: 100%;
     background-color: #fff;
     top: 0;
     right: 0;
     position: fixed;
-    padding: 159px 0 90px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    padding: 50px;
     box-sizing: border-box;
     margin: 0 auto;
+    animation: menu .5s ease;
+    z-index: 10;
+
   }
 
+  .navigation {
+    top: 30%;
+  }
+
+  @keyframes menu {
+    0% {
+      right: -600px;
+      }
+    100% {
+      right: 0px;
+      }
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+  .nav-mobile {
+    padding: 10px;
+  }
 }

@@ -181,14 +181,6 @@
     margin: 0 0 50px;
   }
 
-  .techs__list {
-    grid-template-columns: repeat(1fr, 84px);
-  }
-
-}
-
-@media screen and (max-width: 767px) {
-
   .promo__image {
     width: 248px;
     height: 248px;
@@ -212,6 +204,18 @@
   .techs__item {
     width: 84px;
     height: 57px;
+  }
+
+}
+
+@media screen and (max-width: 425px) {
+
+  .techs {
+    padding: 18px 18px;
+  }
+
+  .main-schools {
+    padding: 18px 18px;
   }
 
 }
