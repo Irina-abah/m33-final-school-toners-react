@@ -98,8 +98,6 @@ const App = () => {
               navigate('/schools')
             } else if (location.pathname === '/profile') {
               navigate('/profile')
-            } else if (location.pathname === '/toners') {
-              navigate('/toners')
             } else if (location.pathname === '/signin') {
               navigate('/schools')
             } else if (location.pathname === '/signup') {

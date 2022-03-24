@@ -13,7 +13,7 @@ const Header = ({onSignOut}) => {
         <img className="header-logo" src={logo} alt="Laurus Trust logo"/>
       </Link>
       <Navigation
-      onSignOut={onSignOut}
+        onSignOut={onSignOut}
       />
     </header>
   )
