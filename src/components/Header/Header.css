@@ -7,6 +7,7 @@
   box-sizing: border-box;
   align-items: center;
   position: relative;
+  max-height: 112px;
 }
 
 .header-logo {
